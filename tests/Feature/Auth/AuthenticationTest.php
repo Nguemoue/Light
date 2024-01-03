@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Administrator;
 use App\Models\User;
 use App\Providers\RouteServiceProvider;
 
@@ -40,3 +41,22 @@ test('users can logout', function () {
     $this->assertGuest();
     $response->assertRedirect('/');
 });
+
+test("users can authenticate to admin guard", function () {
+    //1) cree un administrateur avec des idenfiants précis
+    $admin = Administrator::factory()->create([
+        'login' => "login",
+        "password" => bcrypt("password")
+    ]);
+    //2) requete de post avec les memes identifiants crée
+    $response = $this->post(route('admin.login'),[
+        'login'=>"login",
+        "password"=>"password"
+    ]);
+    //3) si il y'a une redircetion
+    $response->assertRedirect(RouteServiceProvider::ADMIN_HOME);
+    //4) s'assurer que l'administrateur connecte est celui crée
+    $this->assertAuthenticatedAs($admin,"admin");
+
+});
+

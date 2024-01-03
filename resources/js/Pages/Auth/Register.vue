@@ -26,9 +26,8 @@ const submit = () => {
 
         <form @submit.prevent="submit">
             <div>
-                <InputLabel for="name" value="Name" />
-
-                <TextInput
+                <v-text-field
+                    label="Name"
                     id="name"
                     type="text"
                     class="mt-1 block w-full"
@@ -37,14 +36,13 @@ const submit = () => {
                     autofocus
                     autocomplete="name"
                 />
-
                 <InputError class="mt-2" :message="form.errors.name" />
             </div>
 
             <div class="mt-4">
-                <InputLabel for="email" value="Email" />
 
-                <TextInput
+                <v-text-field
+                    label="Email"
                     id="email"
                     type="email"
                     class="mt-1 block w-full"
@@ -59,7 +57,8 @@ const submit = () => {
             <div class="mt-4">
                 <InputLabel for="password" value="Password" />
 
-                <TextInput
+                <v-text-field
+                    label="Password"
                     id="password"
                     type="password"
                     class="mt-1 block w-full"
@@ -72,9 +71,8 @@ const submit = () => {
             </div>
 
             <div class="mt-4">
-                <InputLabel for="password_confirmation" value="Confirm Password" />
-
-                <TextInput
+                <v-text-field
+                    label="Confirm Password "
                     id="password_confirmation"
                     type="password"
                     class="mt-1 block w-full"
@@ -89,14 +87,14 @@ const submit = () => {
             <div class="flex items-center justify-end mt-4">
                 <Link
                     :href="route('login')"
-                    class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500"
+                    class="underline text-sm text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-gray-100 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 dark:focus:ring-offset-gray-800"
                 >
-                    Already registered?
+                    <v-btn v-text="'Already register'"/>
                 </Link>
 
-                <PrimaryButton class="ms-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <v-btn color="primary" type="submit" class="ms-4" :class="{ 'opacity-25': form.processing }" :loading="form.processing">
                     Register
-                </PrimaryButton>
+                </v-btn>
             </div>
         </form>
     </GuestLayout>

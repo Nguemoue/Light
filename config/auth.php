@@ -40,6 +40,17 @@ return [
             'driver' => 'session',
             'provider' => 'users',
         ],
+        'admin'=>[
+            'driver'=>'session',
+            'provider'=>"admins"
+        ]
+    ],
+    "guard_names"=>[
+      "web"=>"web",
+      "admin"=>"admin"
+    ],
+    "guard_failed_redirect"=>[
+      "admin"=>"/admin/login"
     ],
 
     /*
@@ -64,6 +75,10 @@ return [
             'driver' => 'eloquent',
             'model' => App\Models\User::class,
         ],
+        'admins'=>[
+            'driver'=>'eloquent',
+            'model'=>App\Models\Administrator::class
+        ]
 
         // 'users' => [
         //     'driver' => 'database',

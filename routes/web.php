@@ -16,11 +16,16 @@ use Inertia\Inertia;
 |
 */
 
-Route::get('/', \App\Http\Controllers\Home\HomeController::class)->name("home");
+Route::middleware("web")->group(function (){
+    Route::get('/', \App\Http\Controllers\Home\HomeController::class)->name("home");
+});
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get("daily-breads",[\App\Http\Controllers\Home\DailyBreadController::class,"index"])->name("daily-bread.index");
+Route::get("musiques",[\App\Http\Controllers\Home\MusiqueController::class,"index"])->name("musiques.index");
+Route::get("daily-breads/{dailyBread}",[\App\Http\Controllers\Home\DailyBreadController::class,"show"])->name("daily-bread.show");
+Route::resource("encounters",\App\Http\Controllers\Home\EncounterController::class);
+Route::resource("formations",\App\Http\Controllers\Home\FormationController::class);
+Route::get('/dashboard', \App\Http\Controllers\Home\DashboardController::class)->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

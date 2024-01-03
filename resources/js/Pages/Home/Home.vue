@@ -1,12 +1,13 @@
+<script setup>
+import AppLayout from "@/Layouts/AppLayout.vue";
+</script>
+
 <template>
-    <div>
-        <h1>Ceci est la vue en html et css</h1>
-    </div>
+    <AppLayout>
+        <h1 class="text-center">Bienvenue sur Lightdede</h1>
+    </AppLayout>
 </template>
 
-<script setup>
-
-</script>
 
 <style scoped>
 

@@ -1,13 +1,13 @@
 import './bootstrap';
-// import '../css/app.css';
-
+//import '../css/app.css';
+//import "../css/vuetify.css"
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
-import 'vuetify/dist/vuetify.css'
 import { createVuetify } from 'vuetify'
+import "vuetify/styles"
 import * as components from 'vuetify/components'
 import * as directives from 'vuetify/directives'
 
@@ -15,8 +15,7 @@ const vuetify = createVuetify({
     components,
     directives,
 })
-
-const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
+const appName = import.meta.env.VITE_APP_NAME || 'Light';
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
@@ -29,6 +28,8 @@ createInertiaApp({
             .mount(el);
     },
     progress: {
-        color: '#4B5563',
+        color: '#FF0000',
+        showSpinner: true,
+        height:"80px"
     },
 });
