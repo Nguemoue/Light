@@ -9,7 +9,10 @@ class DailyBreadSeeder extends Seeder
 {
     public function run()
     {
-        DailyBread::query()->delete();
-        DailyBread::factory(20)->create();
+        $req = DailyBread::query()
+            ->with("mediaHistory")
+            ->delete();
+        DailyBread::factory(900)->hasComments()
+            ->hasLikes(rand(1,2))->hasMediaHistory()->create();
     }
 }

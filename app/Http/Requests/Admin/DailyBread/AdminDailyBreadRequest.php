@@ -10,10 +10,12 @@ class AdminDailyBreadRequest extends FormRequest
 {
     public function rules(): array
     {
+
         return [
             "title"=>"required|string|unique:daily_breads,title",
             "description"=>['required',"string"],
-            "poster_url"=>['nullable',"image"]
+            "image"=>['array'],
+            "image.*"=>['image']
         ];
     }
 

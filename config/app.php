@@ -183,7 +183,9 @@ return [
 
     'aliases' => Facade::defaultAliases()->merge([
         // 'Example' => App\Facades\Example::class,
-        "PathGenerator"=>\App\Constants\PathGeneratorConstant::class
+        "PathGenerator"=>\App\Constants\PathGeneratorConstant::class,
+        'PDF' => Barryvdh\Snappy\Facades\SnappyPdf::class,
+        'SnappyImage' => Barryvdh\Snappy\Facades\SnappyImage::class,
     ])->toArray(),
 
 ];

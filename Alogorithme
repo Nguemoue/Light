@@ -1,0 +1,13 @@
+Algorithme A;
+
+Var a,b,c :entier;
+
+Début
+
+    a <-- 5;
+    b <-- a+1;
+    c <-- a+b;
+Fin
+
+a) Expliquer chaque ligne,mot et symbole de cet algorithme
+- ici

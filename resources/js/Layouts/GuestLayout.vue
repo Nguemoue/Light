@@ -5,11 +5,9 @@ import { Link } from '@inertiajs/vue3';
 
 <template>
     <v-app >
-        <v-app-bar extension-height="200" extended>
+        <v-app-bar border="">
             <v-app-bar-title>
-                <Link href="/">
-                    <ApplicationLogo />
-                </Link>
+                LIGHT Nation
             </v-app-bar-title>
 
         </v-app-bar>

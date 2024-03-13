@@ -1,3 +1,3 @@
 <template>
-    <img src="/light.jpg" alt="" height="500em" width="100%">
+    <img src="/light-sm.jpg" alt="" height="200" />
 </template>

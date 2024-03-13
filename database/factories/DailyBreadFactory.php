@@ -14,7 +14,8 @@ class DailyBreadFactory extends Factory
         return [
             'title' => fake()->jobTitle(),
             "description" => fake()->text(800),
-            "poster_url" => fake()->image(storage_path("app/public"),1024,400,1,false),
+            "poster_url" => ""
+            //"poster_url" => fake()->image(storage_path("app/public"),1024,400,'human',false),
         ];
     }
 }

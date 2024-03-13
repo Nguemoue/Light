@@ -1,6 +1,5 @@
 <template>
     <v-app>
-
         <v-app-bar color="yellow" flat elevation="2">
             <v-app-bar-nav-icon @click="navigationOpened=!navigationOpened" icon="mdi-menu" ></v-app-bar-nav-icon>
             <v-app-bar-title>Administration</v-app-bar-title>
@@ -30,9 +29,8 @@
                 </Link>
             </v-list>
             <v-list>
-                <Link style="all: unset" :href="route('musiques.index')">
-                    <v-list-item prepend-icon="mdi-music" :active="route().current('musiques.index')" href="#">Musique</v-list-item>
-                </Link>
+                <v-list-item prepend-icon="mdi-music" :active="route().current('musiques.index')" href="#">Musique</v-list-item>
+                <v-list-item prepend-icon="mdi-music" @click="" :active="route().current('musiques.index')" href="#">Client Home</v-list-item>
             </v-list>
         </v-navigation-drawer>
         <v-main>
@@ -43,7 +41,7 @@
 </template>
 
 <script setup>
-import {Link} from "@inertiajs/vue3";
+import {Link, usePage} from "@inertiajs/vue3";
 import {ref} from "vue";
 const navigationOpened = ref(true)
 </script>
